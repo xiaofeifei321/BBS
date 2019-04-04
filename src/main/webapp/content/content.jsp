@@ -117,16 +117,11 @@
 										<div class="row">
 											<div class="col-md-12">
 												<c:if test="${listArticle.photo!=\"photo\" }">
-												<%--	<a href="${APP_PATH}/static/upload/article/${listArticle.photo }" target="_blank">
-														<c:if test="${listArticlephoto:endsWith(\".mp4\")||listArticle.photo.endsWith(\".avi\") }">
-															<video class="img_content" controls="controls"
-																src="${APP_PATH}/static/upload/article/${listArticle.photo }"></video>
-														</c:if>
-														<c:if test="${!listArticle.photo.endsWith(\".mp4\")&&!listArticle.photo.endsWith(\".avi\") }">
+													<a href="${APP_PATH}/static/upload/article/${listArticle.photo }" target="_blank">
 															<img class="img_content"
 																src="${APP_PATH}/static/upload/article/${listArticle.photo }">
-														</c:if>
-													</a>--%>
+
+													</a>
 												</c:if>
 											</div>
 										</div>
@@ -242,7 +237,7 @@
 				<div class="row">
 					<div class="col-md-12"
 						style="position: relative; padding-top: 10px;">
-						<b>所有板块</b>
+						<b>品牌榜</b>
 						<hr>
 					</div>
 				</div>
@@ -257,13 +252,12 @@
 						</a>
 					</div>
 					<!-- 每循环3次就加一些跳行符 -->
-					<c:if test="${status.count%3==0 }">
+					<c:if test="${status.count%3==0}">
 						<br><br><br><br>
 					</c:if>
 				</c:forEach>
 				</div>
 				<!-- 所有板块-结束循环 -->
-
 				<div class="row">
 					<div class="col-md-12"
 						style="position: relative; background-color: #f6f6f6; height: 10px;"></div>
@@ -272,7 +266,7 @@
 				<div class="row">
 					<div class="col-md-12"
 						style="position: relative; padding-top: 10px;">
-						<b>热门文章</b>
+						<b>最美手链</b>
 						<hr>
 					</div>
 				</div>
@@ -290,6 +284,72 @@
 						</div>
 					</c:if>	
 				</c:forEach>
+
+				<!-- 所有板块-结束循环 -->
+				<div class="row">
+					<div class="col-md-12"
+						 style="position: relative; background-color: #f6f6f6; height: 10px;"></div>
+				</div>
+				<div class="row">
+					<div class="col-md-12"
+						 style="position: relative; padding-top: 10px;">
+						<b>手链达人</b>
+						<hr>
+					</div>
+				</div>
+				<c:forEach var="listArticle" items="${listArticle}">
+					<!-- 只显示通过审核的帖子且评论数大于1文章 -->
+					<c:if test="${listArticle.status==1 && listArticle.sum>1 }">
+						<div class="row">
+							<div class="col-md-12">
+								<a href="${APP_PATH }/articleController/getArticleFid?fid=${listArticle.fid }">${listArticle.username}</a>
+							</div>
+							<div class="col-md-12">
+								<br>
+							</div>
+						</div>
+					</c:if>
+				</c:forEach>
+
+				<!-- 所有板块-结束循环 -->
+				<div class="row">
+					<div class="col-md-12"
+						 style="position: relative; background-color: #f6f6f6; height: 10px;"></div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12"
+						 style="position: relative; padding-top: 10px;">
+						<b>精美留言</b>
+					</div>
+				</div>
+
+				<%
+					int i=0;
+				%>
+				<c:forEach var="listArticle" items="${listArticle }">
+					<%
+						i++;
+						if(i<=3){
+					%>
+					<div style="display:none;" >
+						<c:set var="listComment_Fid" value="listComment_${listArticle.fid }"></c:set>
+					</div>
+					<c:forEach var="comment_list" items="${map[listComment_Fid]}">
+						<hr style="position: relative; margin-top: 5px;">
+						<div class="row" style="position: relative; margin-top: -10px;">
+							<div class="col-md-12">
+								&nbsp;&nbsp;&nbsp;
+								<!-- 评论内容 -->
+								<p>${comment_list.pcontent}</p>
+							</div>
+						</div>
+					</c:forEach>
+					<%
+						}
+					%>
+				</c:forEach>
+
 			</div>
 		</div>
 	</div>

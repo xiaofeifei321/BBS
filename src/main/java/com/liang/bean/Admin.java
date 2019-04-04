@@ -4,8 +4,6 @@ import java.util.Date;
 
 public class Admin {
 	private Integer aid;
-
-
 	private String aname;
 
 	private String apassword;

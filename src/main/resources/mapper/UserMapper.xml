@@ -81,6 +81,12 @@
     from user
     where name = #{name,jdbcType=VARCHAR} and password = #{password,jdbcType=VARCHAR}
   </select>
+
+  <select id="selectByUser2"  resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+  </select>
   
   <!-- 注册，按姓名查询 -->
   <select id="selectByUserName" parameterType="com.liang.bean.User" resultMap="BaseResultMap">

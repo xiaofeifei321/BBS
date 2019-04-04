@@ -2,6 +2,8 @@ package com.liang.dao;
 
 import com.liang.bean.Article;
 import java.util.List;
+
+import com.liang.bean.Article3;
 import org.apache.ibatis.annotations.Param;
 
 public interface ArticleMapper {
@@ -16,6 +18,8 @@ public interface ArticleMapper {
 
 	// 查询发帖表信息（无条件）
 	List<Article> selectByArticle();
+
+	List<Article3> selectByArticle3();
 	
 	//按帖子标题模糊查询（搜索框搜索）
 	List<Article> selectByArticleTitle(String articleTitle);

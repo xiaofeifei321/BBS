@@ -52,7 +52,7 @@
 									name="fcontent" style="position: relative; height: 200px;" required></textarea>
 							</div>
 
-							<p class="text-muted">在本地选择你的配图<span class="text-danger">（视频只支持.mp4和.avi格式）：</span></p>
+							<p class="text-muted">在本地选择你的配图<span class="text-danger"></span></p>
 							<div class="form-group">
 								<div id="f_preview">
 									<a href="#">

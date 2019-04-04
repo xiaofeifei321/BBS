@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.liang.bean.Article3;
+import com.liang.bean.User;
+import com.liang.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
@@ -39,6 +42,9 @@ public class ArticleController {
 	CommentService commentService;
 	@Autowired
 	CollectService collectService;
+
+	@Autowired
+	UserService userService;
 	
 	/**
 	 * 向数据库插入发帖信息（包括图片）
@@ -92,11 +98,9 @@ public class ArticleController {
 			
 			// 将article2和photo整合到article中
 			Article article = new Article(article2, newFileName);
-
 			article.setUserid(userid);
 			article.setUsername(username);
 			article.setStatus(0);
-
 			// 将article保存到数据库
 			articleService.setArticle(article);
 		}
@@ -109,10 +113,8 @@ public class ArticleController {
 	 * @param map
 	 */
 	public void getArticle(Map<Object, Object> map) {
-		
 		List<Article> listArticle = articleService.getArticle();
 		map.put("listArticle", listArticle);
-		
 	}
 	
 	/**

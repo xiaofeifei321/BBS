@@ -166,11 +166,11 @@
 									<div class="col-xs-12 col-md-12">
 										<c:if test="${myListArticle.photo!=\"photo\" }">
 											<a href="${APP_PATH }/static/upload/article/${myListArticle.photo }" target="_blank">
-												<c:if test="${myListArticle.photo.endsWith(\".mp4\")||myListArticle.photo.endsWith(\".avi\") }">
+												<c:if test="myListArticle.photo.endsWith(\".mp4\")||myListArticle.photo.endsWith(\".avi\") ">
 													<video controls="controls" src="${APP_PATH }/static/upload/article/${myListArticle.photo }"
 														style="position: relative; width: 30%; height: 30%;"></video>
 												</c:if>
-												<c:if test="${!myListArticle.photo.endsWith(\".mp4\")&&!myListArticle.photo.endsWith(\".avi\") }">
+												<c:if test="!myListArticle.photo.endsWith(\".mp4\")&&!myListArticle.photo.endsWith(\".avi\") ">
 													<img src="${APP_PATH }/static/upload/article/${myListArticle.photo }"
 														style="position: relative; width: 30%; height: 30%;">
 												</c:if>
@@ -267,11 +267,11 @@
 										<div class="col-xs-12 col-md-12">
 											<c:if test="${map_huifu[myArticle_Fid].photo!=\"photo\" }">
 												<a href="${APP_PATH }/static/upload/article/${map_huifu[myArticle_Fid].photo }" target="_blank">
-													<c:if test="${map_huifu[myArticle_Fid].photo.endsWith(\".mp4\")||map_huifu[myArticle_Fid].photo.endsWith(\".avi\") }">
+													<c:if test="map_huifu[myArticle_Fid].photo.endsWith(\".mp4\")||map_huifu[myArticle_Fid].photo.endsWith(\".avi\") ">
 														<video controls="controls" src="${APP_PATH }/static/upload/article/${map_huifu[myArticle_Fid].photo }"
 															style="position: relative; width: 30%; height: 30%;"></video>
 													</c:if>
-													<c:if test="${!map_huifu[myArticle_Fid].photo.endsWith(\".mp4\")&&!map_huifu[myArticle_Fid].photo.endsWith(\".avi\") }">
+													<c:if test="!map_huifu[myArticle_Fid].photo.endsWith(\".mp4\")&&!map_huifu[myArticle_Fid].photo.endsWith(\".avi\") ">
 														<img src="${APP_PATH }/static/upload/article/${map_huifu[myArticle_Fid].photo }"
 															style="position: relative; width: 30%; height: 30%;">
 													</c:if>

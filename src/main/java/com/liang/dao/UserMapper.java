@@ -15,6 +15,9 @@ public interface UserMapper {
 
     //登录查询（按姓名和密码）
     List<User> selectByUser(User user);
+
+    //登录查询（按姓名和密码）
+    List<User> selectByUser2();
     
     //注册按用户名查询
     List<User> selectByUserName(User user);

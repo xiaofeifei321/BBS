@@ -1,6 +1,7 @@
 package com.liang.bean;
 
 import java.util.Date;
+import java.util.List;
 
 public class Article {
     private Integer fid;
@@ -24,6 +25,16 @@ public class Article {
     private String sum;
     
     private String userphoto;
+
+    private List<User> userList;
+
+    public List<User> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(List<User> userList) {
+        this.userList = userList;
+    }
 
     public Article() {
 		super();

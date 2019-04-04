@@ -24,6 +24,12 @@ public class UserService {
 
 		return userMapper.selectByUser(user);
 	}
+
+
+	public List<User> getUser2() {
+
+		return userMapper.selectByUser2();
+	}
 	
 	/**
 	 * 注册按用户名查询

@@ -15,11 +15,11 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="row">
-					<div class="col-xs-6 col-md-6">
-						<img src="${APP_PATH }/static/img/admin/login.png"
+				<%--	<div class="col-xs-6 col-md-6">
+						<img src="${APP_PATH }/static/img/admin/login.jpg"
 							style="position: relative; width: 100%; height: 280px">
-					</div>
-					<div class="col-xs-6 col-md-6">
+					</div>--%>
+					<div class="col-xs-12 col-md-12">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal"
 								aria-label="Close">
@@ -69,11 +69,11 @@
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="row">
-					<div class="col-md-6">
-						<img src="${APP_PATH }/static/img/admin/login.png"
+					<%--<div class="col-md-6">
+						<img src="${APP_PATH }/static/img/admin/login.jpg"
 							style="position: relative; width: 100%; height: 380px;">
-					</div>
-					<div class="col-md-6">
+					</div>--%>
+					<div class="col-md-12">
 						<div class="modal-header">
 							<button type="button" class="close" data-dismiss="modal"
 								aria-label="Close">

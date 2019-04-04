@@ -23,7 +23,7 @@
 			<div class="modal-content">
 				<div class="row">
 					<div class="col-xs-6 col-md-6">
-						<img src="${APP_PATH }/static/img/login.png"
+						<img src="${APP_PATH }/static/img/login.jpg"
 							style="position: relative; width: 100%; height: 280px">
 					</div>
 					<div class="col-xs-6 col-md-6">
@@ -79,7 +79,7 @@
 			<div class="modal-content">
 				<div class="row">
 					<div class="col-xs-6 col-md-6">
-						<img src="${APP_PATH }/static/img/login.png"
+						<img src="${APP_PATH }/static/img/login.jpg"
 							style="position: relative; width: 100%; height: 380px;">
 					</div>
 					<div class="col-xs-6 col-md-6">

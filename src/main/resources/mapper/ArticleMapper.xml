@@ -82,6 +82,15 @@
 	group by a.fid
 	order by fid desc
   </select>
+
+  <!-- 查询发帖表信息（无条件）（并获取每张帖子所对应评论的条数）3 -->
+  <select id="selectByArticle3" parameterType="com.liang.bean.Article" resultMap="BaseResultMap">
+    select
+    a.fid, a.titles, a.fcontent, a.photo, a.bname, a.time, a.userid, a.username, a.status,
+    from article a
+    group by a.userid
+    order by userid desc
+  </select>
   
   <!-- 按帖子标题模糊查询（搜索框搜索）（并获取每张帖子所对应评论的条数） -->
   <select id="selectByArticleTitle" parameterType="java.lang.String" resultMap="BaseResultMap">

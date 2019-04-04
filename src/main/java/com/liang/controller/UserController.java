@@ -385,7 +385,6 @@ public class UserController {
 	public void getUser(Map<Object, Object> map) {
 
 		List<User> listUser = userService.getUser();
-		System.out.println(listUser);
 		map.put("listUser", listUser);
 
 	}

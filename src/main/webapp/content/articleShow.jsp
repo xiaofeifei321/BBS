@@ -72,10 +72,10 @@
 					<div class="col-md-12">
 						<c:if test="${article_Show.photo!=\"photo\" }">
 							<a href="${APP_PATH}/static/upload/article/${article_Show.photo }" target="_blank">
-								<c:if test="${article_Show.photo.endsWith(\".mp4\")||article_Show.photo.endsWith(\".avi\") }">
+								<c:if test="article_Show.photo.endsWith(\".mp4\")||article_Show.photo.endsWith(\".avi\") ">
 									<video class="img_content" controls="controls" src="${APP_PATH }/static/upload/article/${article_Show.photo }"></video>
 								</c:if>
-								<c:if test="${!article_Show.photo.endsWith(\".mp4\")&&!article_Show.photo.endsWith(\".avi\") }">
+								<c:if test="!article_Show.photo.endsWith(\".mp4\")&&!article_Show.photo.endsWith(\".avi\") ">
 									<img class="img_content" src="${APP_PATH }/static/upload/article/${article_Show.photo }">
 								</c:if>
 							</a>

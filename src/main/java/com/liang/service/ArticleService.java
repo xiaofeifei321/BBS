@@ -2,6 +2,8 @@ package com.liang.service;
 
 import java.util.List;
 
+import com.liang.bean.Article3;
+import com.liang.bean.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,8 @@ public class ArticleService {
 	
 	@Autowired
 	ArticleMapper articleMapper;
+	@Autowired
+	UserService userService;
 
 	/**
 	 * 向数据库插入发帖信息
@@ -28,10 +32,16 @@ public class ArticleService {
 	 * @return
 	 */
 	public List<Article> getArticle() {
-		
+		//手链达人模块  当用户发表的内容最多的时候，我们默认他是手链达人 查询用户表
+		List<Article>  list=articleMapper.selectByArticle();
 		return articleMapper.selectByArticle();
 	}
-	
+
+	public List<Article3> getArticle3() {
+
+		return articleMapper.selectByArticle3();
+	}
+
 	/**
 	 * 按帖子标题模糊查询（搜索框搜索）
 	 * @param articleTitle
@@ -108,7 +118,7 @@ public class ArticleService {
 
 	/**
 	 * 修改article表中的username
-	 * @param userid
+	 * @param
 	 */
 	public void updateArticleSetup(Article article) {
 		

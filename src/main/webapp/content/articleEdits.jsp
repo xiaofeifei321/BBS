@@ -57,12 +57,12 @@
 					<div class="form-group">
 						<div id="f_preview_up">
 							<a href="#">
-								<c:if test="${article_Edit.photo.endsWith(\".mp4\")||article_Edit.photo.endsWith(\".avi\") }">
+								<c:if test="article_Edit.photo.endsWith(\".mp4\")||article_Edit.photo.endsWith(\".avi\") ">
 									<video style="position: relative; width: 50%; height: 50%;" id="f_imghead_up"
 										src="${APP_PATH }/static/upload/article/${article_Edit.photo }"
 										onclick="$('#f_previewImg_up').click();"></video>
 								</c:if>
-								<c:if test="${!article_Edit.photo.endsWith(\".mp4\")&&!article_Edit.photo.endsWith(\".avi\") }">
+								<c:if test="!article_Edit.photo.endsWith(\".mp4\")&&!article_Edit.photo.endsWith(\".avi\") ">
 									<img style="position: relative; width: 50%; height: 50%;" id="f_imghead_up"
 										src="${APP_PATH }/static/upload/article/${article_Edit.photo }"
 										onclick="$('#f_previewImg_up').click();">

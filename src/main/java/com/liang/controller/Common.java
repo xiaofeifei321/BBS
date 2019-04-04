@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.liang.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,39 +41,34 @@ public class Common {
 	AttentionService attentionService;
 	@Autowired
 	CollectService collectService;
-	
+	@Autowired
+	UserService userService;
 	/**
 	 * 查询输出首页全部信息（不包含head）
 	 * @return
 	 */
 	@RequestMapping("/getAll")
 	public String getAll(Map<Object, Object> map,Map<Object, Object> map2) {
-		
 		articleController.getArticle(map);
 		List<Article> listArticle=(List<Article>) map.get("listArticle");
-		System.out.println("123456:"+listArticle);
 		int count=listArticle.size();
-		
 		for(int i=0;i<count;i++) {
-			
 			//将每一条帖子对应的id单独抽出来
 			int fid=listArticle.get(i).getFid();
-			System.out.println(fid);
 			//再通过每一个帖子的id查找出对应的评论信息
 			commentController.getCommentFid(fid, map);
 			//将上一步查出的对应的评论信息存放到listComment里
 			List<Comment> listComment =  (List<Comment>) map.get("listComment");
 			System.out.println(listComment);
-			
 			//为map预设一个随帖子id变化而变化的key
 			String listCommentFid="listComment_"+fid;
 			//将每一个帖子下对应的所有评论存入map中（其key是随帖子id变化而变化的）
 			map.put(listCommentFid, listComment);
-			
 			//再将map存入map2
 			map2.put("map", map);
 		}
-		
+
+
 		//查询板块信息（无条件）
 		List<Plate> plate=plateService.getPlate();
 		map.put("plate", plate);
@@ -84,7 +80,6 @@ public class Common {
 		//查询收藏信息（无条件）
 		List<Collect> collect=collectService.getCollect();
 		map.put("collect", collect);
-		
 		return "list";
 	}
 	
@@ -102,7 +97,6 @@ public class Common {
 		userController.getUser(map);
 		//查询帖子信息（无条件）
 		articleController.getArticle(map);
-		
 		return "admin";
 	}
 	

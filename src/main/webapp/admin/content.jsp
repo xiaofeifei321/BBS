@@ -75,15 +75,11 @@
 											</td>
 											
 											<td class=" text-center">
-												<c:if test="${empty adminList}">
-													<span class="glyphicon glyphicon-ban-circle"></span>
-												</c:if>
-												<c:if test="${!empty adminList}">
 													<form action="${APP_PATH}/userController/deleteUser" method="post">
 														<input type="hidden" name="userid" value="${listUser.userid}">
 														<button type="submit" class="btn btn-danger btn-xs" onclick="return user_del();">删除</button>
 													</form>
-												</c:if>	
+
 											</td>
 										</tr>
 									</c:forEach>
@@ -130,11 +126,11 @@
 												<div style="position: relative;width:100px;height:100px;">
 													<c:if test="${listArticle.photo!=\"photo\" }">
 														<a href="${APP_PATH }/static/upload/article/${listArticle.photo }" target="_brank">
-															<c:if test="${listArticle.photo.endsWith(\".mp4\")||listArticle.photo.endsWith(\".avi\") }">
+															<c:if test="listArticle.photo.endsWith(\".mp4\")||listArticle.photo.endsWith(\".avi\") ">
 																<video controls="controls" src="${APP_PATH }/static/upload/article/${listArticle.photo }"
 																	style="position: relative; width: 100%; height: 100%;"></video>
 															</c:if>
-															<c:if test="${!listArticle.photo.endsWith(\".mp4\")&&!listArticle.photo.endsWith(\".avi\") }">
+															<c:if test="!listArticle.photo.endsWith(\".mp4\")&&!listArticle.photo.endsWith(\".avi\") ">
 																<img src="${APP_PATH }/static/upload/article/${listArticle.photo }"
 																	style="position: relative; width: 100%; height: 100%;">
 															</c:if>
@@ -161,12 +157,7 @@
 											</td>
 											
 											<td class=" text-center">
-												<!-- 未登录 -->
-												<c:if test="${empty adminList}">
-													<span class="glyphicon glyphicon-ban-circle"></span>
-												</c:if>
 												<!-- 已登录 -->
-												<c:if test="${!empty adminList}">
 													<!-- 待审核 -->
 													<c:if test="${listArticle.status==0 }">
 														<form action="${APP_PATH}/articleController/articleStatus" method="post">
@@ -195,8 +186,7 @@
 															<input type="hidden" name="status" value="1">
 															<input type="submit" class="btn btn-info btn-sm" value="通过"/>
 														</form>
-													</c:if>	
-												</c:if>
+													</c:if>
 											</td>
 										</tr>
 									</c:forEach>
@@ -240,10 +230,6 @@
 											<td>${plates.btime}</td>
 											
 											<td class=" text-center">
-												<c:if test="${empty adminList}">
-													<span class="glyphicon glyphicon-ban-circle"></span>
-												</c:if>
-												<c:if test="${!empty adminList}">
 													<form action="${APP_PATH}/plateController/getUpdatePlate" method="post">
 														<input type="hidden" name="bid" value="${plates.bid}">
 														<input type="hidden" name="bname" value="${plates.bname}">
@@ -254,7 +240,6 @@
 														<input type="hidden" name="bid" value="${plates.bid}">
 														<button type="submit" class="btn btn-danger btn-xs" onclick="return b_del();">删除</button>
 													</form>
-												</c:if>	
 											</td>
 										</tr>
 									</c:forEach>
@@ -266,7 +251,7 @@
 				</div>
 				
 				<!--访问记录-->
-				<div class="col-md-12 fwjl" style="">
+				<div class="col-md-12 fwjl" style="display: none" >
 					<div class="panel panel-default ">
 						<div class="panel-heading">
 							<div class="row">

@@ -32,7 +32,7 @@
 							class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="${APP_PATH}/index.jsp">
-						<img class="img_logo" alt="Brand" src="${APP_PATH}/static/img/logo-lvse.png">
+						<img class="img_logo" alt="Brand" src="${APP_PATH}/static/img/logo-lvse.jpg">
 					</a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->

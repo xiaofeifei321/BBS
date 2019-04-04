@@ -108,11 +108,11 @@
 										<div class="col-xs-12 col-md-12">
 											<c:if test="${othersListArticle.photo!=\"photo\" }">
 												<a href="${APP_PATH }/static/upload/article/${othersListArticle.photo }" target="_blank">
-													<c:if test="${othersListArticle.photo.endsWith(\".mp4\")||othersListArticle.photo.endsWith(\".avi\") }">
+													<c:if test="othersListArticle.photo.endsWith(\".mp4\")||othersListArticle.photo.endsWith(\".avi\") ">
 														<video controls="controls" src="${APP_PATH }/static/upload/article/${othersListArticle.photo }"
 															style="position: relative; width: 30%; height: 30%;"></video>
 													</c:if>
-													<c:if test="${!othersListArticle.photo.endsWith(\".mp4\")&&!othersListArticle.photo.endsWith(\".avi\") }">
+													<c:if test="!othersListArticle.photo.endsWith(\".mp4\")&&!othersListArticle.photo.endsWith(\".avi\") ">
 														<img src="${APP_PATH }/static/upload/article/${othersListArticle.photo }"
 															style="position: relative; width: 30%; height: 30%;">
 													</c:if>
