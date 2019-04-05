@@ -309,7 +309,6 @@ public class UserController {
 	 */
 	@RequestMapping("/getOthers")
 	public String getOthers(@RequestParam(value = "userid") int userid, Map<Object, Object> map,Map<Object, Object> map2,HttpSession session) {
-
 		//如果该用户是登录用户，则回到“个人主页”
 		if(session.getAttribute("userid")!=null && session.getAttribute("userid").equals(userid)) {
 			
@@ -320,14 +319,16 @@ public class UserController {
 			 * 按userid查询用户信息
 			 */
 			List<User> othersListUser = userService.getUserId(userid);
+			if(othersListUser.size()!=0){
 			if (othersListUser.get(0).getSex() == null) {
 				othersListUser.get(0).setSex("保密");
 			}
 			if (othersListUser.get(0).getIntro() == null) {
 				othersListUser.get(0).setIntro("无");
 			}
-			map.put("othersListUser", othersListUser.get(0));
 
+			map.put("othersListUser", othersListUser.get(0));
+			}
 			/**
 			 * 按userid查询帖子信息
 			 */

@@ -35,10 +35,7 @@ public class PlateController {
 	public void getPlate(Map<Object, Object> map) {
 		
 		List<Plate> plate=plateService.getPlate();
-		
 		map.put("plate", plate);
-		
-		System.out.println(plate);
 	}
 	
 	/**

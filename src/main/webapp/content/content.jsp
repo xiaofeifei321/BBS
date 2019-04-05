@@ -33,7 +33,7 @@
 										<div class="row">
 											<div class="col-xs-7 col-md-9"
 												style="position: relative; padding-top: 10px;">
-												<small>热门内容，来自：<a href="${APP_PATH }/common/getArticleBname?bname=${listArticle.bname }">${listArticle.bname }</a></small>
+												<small>内容，来自：<a href="${APP_PATH }/common/getArticleBname?bname=${listArticle.bname }">${listArticle.bname }</a></small>
 											</div>
 											<div class="col-xs-5 col-md-3"
 												style="position: relative; padding-top: 10px;">
@@ -298,11 +298,13 @@
 					</div>
 				</div>
 				<c:forEach var="listArticle" items="${listArticle}">
-					<!-- 只显示通过审核的帖子且评论数大于1文章 -->
-					<c:if test="${listArticle.status==1 && listArticle.sum>1 }">
+					<%--文章数量大于3--%>
+					<c:if test="${listArticle.status==1 && listArticle.sum>3}">
 						<div class="row">
+							<%--TODO --%>
 							<div class="col-md-12">
-								<a href="${APP_PATH }/articleController/getArticleFid?fid=${listArticle.fid }">${listArticle.username}</a>
+								<a href="${APP_PATH }/userController/getOthers?userid=${listArticle.userid }">${listArticle.username}</a>
+								<%--<a href="${APP_PATH }/articleController/getArticleFid?fid=${listArticle.fid }">${listArticle.username}</a>--%>
 							</div>
 							<div class="col-md-12">
 								<br>

@@ -67,7 +67,6 @@ public class ArticleController {
 		} else {//在linux系统下
 			projectname = projectname.substring(projectname.lastIndexOf("/"),projectname.length());
 		}
-		System.out.println("111111111111111111111111:"+projectname);
 
 		//文件（图片）路径
 		String filePath = PathUtil.getCommonPath()+projectname+PathUtil.getArticlePath();
@@ -75,14 +74,10 @@ public class ArticleController {
 		String newFileName = "photo";
 		
 		String username=(String) session.getAttribute("username");
-		System.out.println(username!=null);
 		//用户登录情况下才可发帖
 		if(username!=null) {
-			
 			//当其中没有值时"int userid=null"报错(肯定报错啊，int=null???)
-			//TODO 这里报错
-//			int userid=(int)session.getAttribute("userid");
-			int userid=11;
+			int userid=(Integer) session.getAttribute("userid");
 			// 获取上传图片的文件名及其后缀(获取原始图片的拓展名)
 			String fileName = file.getOriginalFilename();
 			
